@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import About from "./components/about"
 import Login from "./components/login"
+import Dash from './components/dash'
 import Nav from "./components/nav"
 
 function App() {
@@ -11,7 +12,10 @@ function App() {
       return <About></About>;
     }else if(currentPage === 1){
       return <Login></Login>
+    } else if (currentPage === 2){
+      return <Dash></Dash>
     }
+
   }
 
   return (

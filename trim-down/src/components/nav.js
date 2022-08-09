@@ -5,6 +5,7 @@ function Nav(props) {
     <div>
         <button onClick={() => props.setCurrentPage(0)}>About</button>
         <button onClick={() => props.setCurrentPage(1)}>Login</button>
+        <button onClick={() => props.setCurrentPage(2)}>Dashboard</button>
     </div>
   )
 }
