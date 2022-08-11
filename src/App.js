@@ -4,6 +4,8 @@ import Login from "./components/login"
 import Dash from './components/dash'
 import Footer from './components/footer'
 import Nav from "./components/nav"
+import './App.css';
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0)
