@@ -4,6 +4,7 @@ import Login from "./components/login"
 import Dash from './components/dash'
 import Footer from './components/footer'
 import Nav from "./components/nav"
+import Hero from './components/hero'
 import './App.css';
 
 
@@ -26,12 +27,8 @@ function App() {
     <>
       <div className="bg-primary min-h-screen">
         <Nav setCurrentPage={setCurrentPage}/>
-          {displayPage()}
-      
-        <main>
-      
-        </main>
-      
+        <Hero />
+        {displayPage()}
       </div>
       <Footer />
     </>
