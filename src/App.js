@@ -8,14 +8,14 @@ import './App.css';
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState("")
 
   function displayPage(){
-    if(currentPage === 0){
+    if(currentPage === "About"){
       return <About></About>;
-    }else if(currentPage === 1){
+    }else if(currentPage === "Login"){
       return <Login></Login>
-    } else if (currentPage === 2){
+    } else if (currentPage === "Dashboard"){
       return <Dash></Dash>
     }
 
@@ -25,9 +25,10 @@ function App() {
     <>
       <Nav setCurrentPage={setCurrentPage}/>
       {displayPage()}
-    <main>
-    <Footer></Footer>
-    </main>
+      <main>
+      <Footer></Footer>
+      </main>
+      
     </>
   )
 }
