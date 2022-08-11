@@ -5,30 +5,30 @@ import '../index.css'
 function About() {
   return (
     <div className='aboutSec'>
-    <div className='mission'>
-      <h1>Our Mission</h1>
-      <p>To provide a way to keep track of how much your daily habits are costing you. </p>
+            <h1>Our Mission</h1>
+     <div className='mission'>
+         <p>To provide a way to keep track of how much your daily habits are costing you. </p>
       </div>
 
+      <h1>Our Story</h1>
     <div className='story'>
-      <h2>Our Story</h2>
       <p>We understand how daily habits can become difficult to keep track of. Especially if your habit puts you in an altered state of mind. We make it easy for you to keep track of your spending habits or identify where you may need to trim down. </p>
     </div>
 
-    <h2>Trim Team</h2>
+    <h1>Trim Team</h1>
       <div className='team'>
         <ul>
-          <li>Kansas Carver</li>
-          <li>Luis Pineda</li>
-          <li>Gerus Hays</li>
-          <li>Valeria Garcia</li>
-          <li>Sterling Peck</li>
+          <li><a href='https://github.com/khcarver1'>Kansas Carver</a></li>
+          <li><a href='https://github.com/lrpineda'>Luis Pineda</a></li>
+          <li><a href='https://github.com/GerusHays'>Gerus Hays</a></li>
+          <li><a href='https://github.com/vhivestate'>Valeria Garcia</a></li>
+          <li><a href='https://github.com/sterlingpeck'>Sterling Peck</a></li>
         </ul>
       </div>
 
       <div className='form'>
-      <h2>Questions or Feedback?</h2>
-      <h2>Contact Us</h2>
+      <h1>Questions or Feedback?</h1>
+      <h1>Contact Us</h1>
       <form className='contactForm' action="" id="contact-form" >
             <div>
               <label htmlFor="name"></label>
