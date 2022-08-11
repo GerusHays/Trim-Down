@@ -19,6 +19,6 @@ const expenseSchema = new Schema({
 
 const Users = mongoose.model('users', userSchema, 'users');
 const Expenses = mongoose.model('expenses', expenseSchema, 'expenses');
-const mySchemas = {'users':Users, 'expenses':Expenses};
+const mySchemas = {'Users':Users, 'Expenses':Expenses};
 
 module.exports = mySchemas;
