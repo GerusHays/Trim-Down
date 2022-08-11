@@ -26,7 +26,11 @@ function Nav(props) {
           </div> {/* navbar-start */}
 
           <div className="navbar-center">
-            <a className="btn btn-ghost normal-case text-xl logo">TrimDown</a>
+            <a className="btn btn-ghost normal-case text-xl logo">
+              TrimDown
+              <img src={require('../assets/images/coin.png')} alt='coin' className="max-w-[20px] " />
+            </a>
+            
           </div> {/* navbar-center */}
           
           <div className="navbar-end">
@@ -42,7 +46,7 @@ function Nav(props) {
                 <li><a>Logout</a></li>
               </ul>
             </div> {/* dropdown user */}
-          </div> {/* navbar-end div */}
+          </div> {/* navbar-end div*/}
         </div> {/* end of navbar */}
         
     </>

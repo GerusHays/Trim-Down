@@ -21,15 +21,18 @@ function App() {
   }
 
   return (
-    <div className="bg-primary min-h-screen">
+    <>
+      <div className="bg-primary min-h-screen">
+        <Nav setCurrentPage={setCurrentPage}/>
+          {displayPage()}
       
-      <Nav setCurrentPage={setCurrentPage}/>
-      {displayPage()}
+        <main>
       
-      <main>
-      <Footer></Footer>
-      </main>
-    </div>
+        </main>
+      
+      </div>
+      <Footer />
+    </>
   )
 }
 
