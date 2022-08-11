@@ -5,6 +5,7 @@ import Dash from './components/dash'
 import Footer from './components/footer'
 import Nav from "./components/nav"
 
+
 function App() {
   const [currentPage, setCurrentPage] = useState("")
 
@@ -20,14 +21,15 @@ function App() {
   }
 
   return (
-    <>
+    <div className="bg-primary min-h-screen">
+      
       <Nav setCurrentPage={setCurrentPage}/>
       {displayPage()}
+      
       <main>
       <Footer></Footer>
       </main>
-      
-    </>
+    </div>
   )
 }
 

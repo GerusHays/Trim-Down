@@ -1,7 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url();
-.logo{
+@import url("https://use.typekit.net/lfb5whd.css");
 
+.logo {
+    font-family: montserrat, sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
