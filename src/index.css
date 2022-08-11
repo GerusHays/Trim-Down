@@ -37,7 +37,7 @@ code {
 }
 
 .mission p {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
 
 }
@@ -53,8 +53,8 @@ code {
 }
 
 .story p {
-  font-size: 30px;
-  max-width: 90%;
+  font-size: 25px;
+  max-width: 70%;
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(255, 255, 255, 0.134); 
   color: rgb(0, 0, 0);
@@ -64,7 +64,6 @@ code {
 }
 
 .team {
-  font-size: 35px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -76,7 +75,7 @@ code {
 }
 
 .team li {
-  font-size: 30px;
+  font-size: 35px;
   list-style-type: none;
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(255, 255, 255, 0.377); /* Black w/opacity/see-through */
@@ -99,3 +98,37 @@ code {
 
 a:link { text-decoration: none; }
 
+.aboutSec button {
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.contactForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  outline-style: solid ;
+  max-width: 70%;
+}
+
+.contactForm textarea {
+  padding: 30px;
+  width: 190px;
+  outline-style: solid ;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.contactForm input { 
+  padding: 5px 15px 10px;
+  outline-style: solid ;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}

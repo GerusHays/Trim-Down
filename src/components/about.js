@@ -26,10 +26,12 @@ function About() {
         </ul>
       </div>
 
-      <div className='form'>
       <h1>Questions or Feedback?</h1>
       <h1>Contact Us</h1>
-      <form className='contactForm' action="" id="contact-form" >
+      <div className='form'>
+
+      <form>
+            <div className='contactForm'>
             <div>
               <label htmlFor="name"></label>
               <input type="text" name="name"  placeholder="Name"/>
@@ -42,9 +44,10 @@ function About() {
               <label htmlFor="message"></label>
               <textarea name="message" rows="5"  placeholder="Your message"/>
             </div>
-
-            <button>Submit</button>
+            </div>
+            
           </form>
+          <button>Submit</button>
         </div>
     </div>
 
