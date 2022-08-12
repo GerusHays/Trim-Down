@@ -26,7 +26,7 @@ function Nav(props) {
           </div> {/* navbar-start */}
 
           <div className="navbar-center">
-            <a className="btn btn-ghost normal-case text-xl logo">
+            <a className="btn btn-ghost normal-case text-xl logo" href="/">
               TrimDown
               <img src={require('../assets/images/coin.png')} alt='coin' className="max-w-[20px] " />
             </a>

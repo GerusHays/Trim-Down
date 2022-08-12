@@ -20,14 +20,13 @@ function App() {
     } else if (currentPage === "Dashboard"){
       return <Dash></Dash>
     }
-
+    return <Hero />
   }
 
   return (
     <>
-      <div className="bg-primary min-h-screen">
+      <div className="bg-primary ">
         <Nav setCurrentPage={setCurrentPage}/>
-        <Hero />
         
         {displayPage()}
       </div>
