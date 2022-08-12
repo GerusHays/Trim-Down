@@ -24,34 +24,4 @@
         font-style: normal;
     }
 }
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* About Section */
-.mission {
-  text-align: center;
-  background-image: url(./assets/images/about.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-  max-width: 100;
-}
-
-.team {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-  background-image: url(./assets/images/team.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 400px;
-  max-width: 100;
-}
-
-.team li {
-  list-style-type: none;
-}
 

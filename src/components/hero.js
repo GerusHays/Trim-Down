@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
         <div className='flex justify-center pb-10'>
             <div className='card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 '>
-                <div className='card-body'>
+                <div className='card-body items-center text-center'>
                     <h2 className='card-title'>
                         No matter what you're trying to reduce spending on, we can help! 
                     </h2>
