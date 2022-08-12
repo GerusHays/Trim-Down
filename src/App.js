@@ -28,6 +28,7 @@ function App() {
       <div className="bg-primary min-h-screen">
         <Nav setCurrentPage={setCurrentPage}/>
         <Hero />
+        
         {displayPage()}
       </div>
       <Footer />
