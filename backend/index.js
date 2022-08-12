@@ -1,23 +1,41 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const routesHandler = require('./routes/handler.js');
-const mongoose = require('mongoose');
-require('dotenv/config');
+const express = require("express");
+const bodyParser = require("body-parser");
+const routesHandler = require("./routes/handler.js");
+const mongoose = require("mongoose");
+const { ApolloServer } = require("apollo-server-express");
+const { typeDefs, resolvers } = require("./schemas");
+require("dotenv/config");
 
-const app = express();
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
-app.use('/', routesHandler);
-
+const PORT = process.env.PORT || 4000; // backend routing port
 // DB Connection
-mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:true})
-.then( () => {
-    console.log('DB Connected!');
-})
-.catch( (err) => {
+mongoose
+  .connect(process.env.DB_URI || "mongodb://localhost:27017/jwt", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("DB Connected!");
+  })
+  .catch((err) => {
     console.log(err);
-});
+  });
 
+const db = mongoose.connection;
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use("/", routesHandler);
+
+const startApolloServer = async ({ typeDefs, resolvers }) => {
+  await server.start();
+  server.applyMiddleware({ app });
+};
 
 // if (process.env.NODE_ENV === 'production') {
 //     // Serve any static files
@@ -29,8 +47,10 @@ mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:t
 //     });
 // }
 
-
-const PORT = process.env.PORT || 4000; // backend routing port
-app.listen(PORT, () => {
+db.once("open", () => {
+  app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
+  });
 });
+
+startApolloServer(typeDefs, resolvers);
