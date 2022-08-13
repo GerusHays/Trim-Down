@@ -4,6 +4,7 @@ const routesHandler = require("./routes/handler.js");
 const mongoose = require("mongoose");
 const { ApolloServer } = require("apollo-server-express");
 const { typeDefs, resolvers } = require("./schemas");
+const { authMiddleware } = require("./utils/auth");
 require("dotenv/config");
 
 const PORT = process.env.PORT || 4000; // backend routing port
@@ -25,6 +26,7 @@ const db = mongoose.connection;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: authMiddleware,
 });
 const app = express();
 

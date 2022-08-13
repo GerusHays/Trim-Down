@@ -29,7 +29,7 @@ export default function App() {
 // function App() {
 //   const [currentPage, setCurrentPage] = useState(0);
 
-//   function displayPage() {
+//   function displayPage() 
 //     if (currentPage === 0) {
 //       return <About></About>;
 //     } else if (currentPage === 1) {
