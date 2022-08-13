@@ -21,10 +21,10 @@ const Hero = () => {
                         No matter what you're trying to reduce spending on, we can help! 
                     </h2>
                     <div className='card-actions py-3 '>
-                        <Icon iconName={'beer'} />
-                        <Icon iconName={'vaping'} />
-                        <Icon iconName={'clothes'} />
-                        <Icon iconName={'weed'} />
+                        <Icon iconName={'beer'} iconSize={'md'} />
+                        <Icon iconName={'vaping'} iconSize={'md'} />
+                        <Icon iconName={'clothes'} iconSize={'md'} />
+                        <Icon iconName={'weed'} iconSize={'md'} />
                     </div>
                     <div className='card-actions justify-center'>
                         <button className='btn btn-error'>Sign Up</button>
