@@ -1,52 +1,54 @@
 import React, { useState } from "react";
-// import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import About from "./pages/about";
-// import Register from "./pages/register";
 import Login from "./pages/login";
-import Dash from "./pages/dashboard";
+import Dashboard from "./pages/dashboard";
 import Footer from "./pages/footer";
 import Nav from "./pages/nav";
 import Hero from "./pages/hero";
-// import "react-toastify/dist/ReactToastify.css";
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import Signup from "./pages/register";
 
-function App() {
-  const [currentPage, setCurrentPage] = useState("");
+const httpLink = createHttpLink({
+  uri: "http://localhost:4000/graphql",
+});
 
-  function displayPage() {
-    if (currentPage === "About") {
-      return <About></About>;
-    } else if (currentPage === "Login") {
-      return <Login></Login>;
-    } else if (currentPage === "Dashboard") {
-      return <Dash></Dash>;
-    }
-    return <Hero />;
-  }
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
 
+export default function App() {
   return (
     <>
-      <div className="bg-primary ">
-        <Nav setCurrentPage={setCurrentPage} />
-
-        {displayPage()}
-      </div>
-      <Footer />
-
-      {/* {Browser router stuff}
-      <Nav />
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/register" element={<Register />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route exact path="/nav" element={<Nav />} />
-          <Route exact path="/footer" element={<Footer />} />
-          <Route exact path="/" element={<Login />} />
-        </Routes>
-      </BrowserRouter> */}
+      <ApolloProvider client={client}>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <div className="container"></div>
+          <Nav />
+          <BrowserRouter>
+            <Routes>
+              <Route exact path="/Register" element={<Signup />} />
+              <Route exact path="/Login" element={<Login />} />
+              <Route exact path="/Dashboard" element={<Dashboard />} />
+              {/* <Route path="/Dashboard">
+                <Route path=":username" element={<Dash />} />
+                <Route path="" element={<Dash />} />
+              </Route> */}
+              {/* <Route exact path="/Dashboard" element={<Dash />} /> */}
+              <Route exact path="/about" element={<About />} />
+            </Routes>
+          </BrowserRouter>
+          <Hero />
+          <Footer />
+        </div>
+      </ApolloProvider>
     </>
   );
 }
-
-export default App;

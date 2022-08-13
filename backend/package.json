@@ -4,7 +4,7 @@
   "description": "backend folder for react app with node.js and mongoose",
   "main": "index.js",
   "scripts": {
-    "server": "node index.js",
+    "server": "node server.js",
     "client": "npm run start --prefix ../frontend",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },

@@ -29,7 +29,7 @@ userSchema.pre("save", async function (next) {
 
 // Compare incoming password with hash
 userSchema.methods.isCorrectPassword = async function (password) {
-  return password === this.password;
+  return bcrypt.compare(password, this.password);
 };
 
 const expenseSchema = new Schema({
