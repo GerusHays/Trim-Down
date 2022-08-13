@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
   username: { type: String, required: true },
-  fullname: { type: String, required: true },
   email: {
     type: String,
     required: true,
@@ -20,17 +19,17 @@ const userSchema = new Schema({
 });
 
 // Set up middleware
-userSchema.pre("save", async function (next) {
-  if (this.isNew || this.isModified("password")) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
-  next();
-});
+// userSchema.pre("save", async function (next) {
+//   if (this.isNew || this.isModified("password")) {
+//     const saltRounds = 10;
+//     this.password = await bcrypt.hash(this.password, saltRounds);
+//   }
+//   next();
+// });
 
 // Compare incoming password with hash
 userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
+  return password === this.password;
 };
 
 const expenseSchema = new Schema({
