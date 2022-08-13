@@ -15,7 +15,7 @@ function Dashboard() {
             <h2 className="card-title mb-4">Vape Juice <span><FaChevronDown /></span></h2>
             <div className="flex flex-row gap-5 pb-2">
               <p>Sun</p>
-              <progress class="progress progress-success h-6" value="0" max="100"></progress>
+              <progress class="progress progress-success h-6" value="32" max="100"></progress>
             </div>
             <div className="flex flex-row gap-5 pb-2">
               <p>Mon</p>
