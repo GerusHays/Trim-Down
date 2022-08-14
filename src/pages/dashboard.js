@@ -1,26 +1,12 @@
 import React from "react";
 import { FaChevronDown } from "react-icons/fa";
 import Expense from "./sub-components/expense";
-// import { useParams } from "react-router-dom";
-// import { useQuery } from "@apollo/client";
-// import { QUERY_USER } from "../utils/queries";
-
-// const Profile = () => {
-//   const { username: userParam } = useParams();
-
-//   const { loading, data } = useQuery(QUERY_USER, {
-//     variables: { username: userParam },
-//   });
-
-//   const user = data?.user || {};
-// };
 
 function Dashboard() {
   return (
     <div className="bg-base-100 ">
       <div className="bg-primary rounded-b-lg py-6">
-        <h1 className="text-left px-6 text-white text-2xl">Welcome John</h1>
-        {/* We will want to replace with ${username} */}
+        <h1 className="text-left px-6 text-white text-2xl">Welcome John!</h1>
       </div>
       <div className="flex flex-col py-4 w-11/12 md:w-5/6 mx-auto">
         <h1 className="text-left text-2xl pb-2">Statistics</h1>

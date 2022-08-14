@@ -1,4 +1,5 @@
 import React from "react";
+import Auth from "../utils/auth";
 
 const navList = ["About", "Login", "Dashboard"];
 
@@ -10,6 +11,11 @@ function Nav(props) {
       </li>
     );
   });
+
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
   return (
     <>
@@ -72,10 +78,14 @@ function Nav(props) {
                 </a>
               </li>
               <li>
-                <a href="*">Settings</a>
+                <a>Settings</a>
               </li>
               <li>
-                <a href="/">Logout</a>
+                <>
+                  <a href="/" onClick={logout}>
+                    Logout
+                  </a>
+                </>
               </li>
             </ul>
           </div>{" "}
