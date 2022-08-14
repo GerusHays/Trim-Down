@@ -1,5 +1,5 @@
 import React from "react";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaPlus } from "react-icons/fa";
 import Expense from "./sub-components/expense";
 
 function Dashboard() {
@@ -13,7 +13,7 @@ function Dashboard() {
         <div className="card  bg-white shadow-xl mb-8">
           <div className="card-body">
             <h2 className="card-title mb-4">
-              Vape Juice{" "}
+              Vape Juice
               <span>
                 <FaChevronDown />
               </span>
@@ -77,6 +77,9 @@ function Dashboard() {
           </div>
         </div>
         <h1 className="text-left text-2xl pb-2">Expenses</h1>
+        <button className="btn w-fit btn-ghost mb-3">
+        <FaPlus /><span className="text-lg pt-0.5 px-1 capitalize">Add Expense</span> 
+        </button>
         <Expense />
       </div>
     </div>
