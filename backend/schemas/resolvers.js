@@ -1,6 +1,7 @@
 const { Users } = require("../models/Schemas.js");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
+const { TiArrowSyncOutline } = require("react-icons/ti");
 
 const resolvers = {
   Query: {
@@ -11,6 +12,10 @@ const resolvers = {
     },
     users: async () => {
       return Users.find().select("-__v -password");
+    },
+    user: async (parent, args) => {
+      const userData = await Users.findOne({ username: args.username });
+      return userData;
     },
   },
 

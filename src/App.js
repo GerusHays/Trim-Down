@@ -1,10 +1,10 @@
-// import React, { useState } from "react";
+import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import About from "./pages/about";
 import Login from "./pages/login";
-import Dashboard from "./pages/dashboard";
+import Profile from "./pages/profile";
 import Footer from "./pages/footer";
-import Nav from "./pages/nav";
+import Header from "./pages/header";
 import Hero from "./pages/hero";
 import {
   ApolloProvider,
@@ -16,7 +16,7 @@ import { setContext } from "@apollo/client/link/context";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import Signup from "./pages/register";
-// import Auth from "../src/utils/auth";
+import Auth from "../src/utils/auth";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:4000/graphql",
@@ -43,19 +43,26 @@ export default function App() {
       <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container"></div>
-          <Nav />
+          {/* <Nav /> */}
           <BrowserRouter>
+            <Header />
+            {Auth.loggedIn() ? (
+              <></>
+            ) : (
+              <>
+                <Hero />
+              </>
+            )}
             <Routes>
-              <Route exact path="/Register" element={<Signup />} />
-              <Route exact path="/Login" element={<Login />} />
-              <Route path="/Dashboard">
-                <Route path=":username" element={<Dashboard />} />
-                <Route path="" element={<Dashboard />} />
+              <Route exact path="/register" element={<Signup />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route path="/profile">
+                <Route path=":username" element={<Profile />} />
+                <Route path="" element={<Profile />} />
               </Route>
               <Route exact path="/about" element={<About />} />
             </Routes>
           </BrowserRouter>
-          <Hero />
           <Footer />
         </div>
       </ApolloProvider>

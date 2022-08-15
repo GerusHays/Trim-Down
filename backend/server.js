@@ -6,7 +6,7 @@ const { ApolloServer } = require("apollo-server-express");
 const { typeDefs, resolvers } = require("./schemas");
 const { authMiddleware } = require("./utils/auth");
 require("dotenv/config");
-
+const path = require("path");
 const PORT = process.env.PORT || 4000; // backend routing port
 // DB Connection
 mongoose
@@ -44,9 +44,9 @@ const startApolloServer = async ({ typeDefs, resolvers }) => {
 //     app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // Handle React routing, return all requests to React app
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "frontend/build", routesHandler));
-});
+// app.get("*", function (req, res) {
+//   res.sendFile(path.join(__dirname, "frontend/build", routesHandler));
+// });
 
 db.once("open", () => {
   app.listen(PORT, () => {

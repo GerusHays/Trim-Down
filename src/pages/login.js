@@ -26,9 +26,9 @@ const Login = (props) => {
       const { data } = await login({
         variables: { ...formState },
       });
-
+      console.log(data);
       Auth.login(data.login.token);
-      document.location.replace("/Dashboard");
+      document.location.replace(`/profile/${data.login.user.username}`);
     } catch (e) {
       console.error(e);
     }

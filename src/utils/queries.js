@@ -6,7 +6,6 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      }
     }
   }
 `;
@@ -17,15 +16,6 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      charts {
-        _id
-        dataText
-        reactions {
-          _id
-          createdAt
-          dataBody
-        }
-      }
     }
   }
 `;
@@ -36,10 +26,6 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
-      charts {
-        _id
-        dataText
-      }
     }
   }
 `;
