@@ -1,14 +1,6 @@
 import React from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Expense from "./sub-components/expense";
-// import { Link } from "react-router-dom";
-
-// import Budget from "./sub-components/budget";
-// import Remaining from "./sub-components/remaining";
-// import ExpenseTotal from "./sub-components/expenseTotal";
-// import { AppProvider } from "./context/AppContext";
-// import ExpenseList from "./sub-components/ExpenseList";
-// import AddExpenseForm from "./sub-components/AddExpenseForm";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
@@ -21,11 +13,6 @@ const Profile = (props) => {
   });
   const user = data?.me || data?.user || {};
   console.log(user);
-
-  // navigate to personal profile page if username is yours
-  // if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-  //   return <Navigate to="/profile" />;
-  // }
 
   if (loading) {
     return <div>Loading...</div>;
