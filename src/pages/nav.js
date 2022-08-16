@@ -1,13 +1,13 @@
 import React from "react";
 import Auth from "../utils/auth";
 
-const navList = ["About", "Login", "Dashboard"];
+const navList = ["About", "Register", "Profile", "Login"];
 
 function Nav(props) {
   const list = navList.map((item) => {
     return (
       <li key={item}>
-        <button onClick={() => props.setCurrentPage(item)}>{item}</button>
+        <a href={`/${item}`}>{item}</a>
       </li>
     );
   });

@@ -6,6 +6,7 @@ import Profile from "./pages/profile";
 import Footer from "./pages/footer";
 import Header from "./pages/header";
 import Hero from "./pages/hero";
+import Nav from "./pages/nav";
 import {
   ApolloProvider,
   ApolloClient,
@@ -45,7 +46,7 @@ export default function App() {
           <div className="container"></div>
           {/* <Nav /> */}
           <BrowserRouter>
-            <Header />
+            <Nav />
             {Auth.loggedIn() ? (
               <></>
             ) : (
