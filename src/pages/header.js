@@ -15,6 +15,9 @@ const Header = () => {
         <Link to="/">
           <h1>Trim Down</h1>
         </Link>
+        <Link to="/about">
+          <h1>About</h1>
+        </Link>
 
         <nav className="text-center">
           {Auth.loggedIn() ? (
@@ -26,7 +29,7 @@ const Header = () => {
           ) : (
             <>
               <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <Link to="/register">Signup</Link>
             </>
           )}
         </nav>
