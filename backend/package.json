@@ -2,11 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "backend folder for react app with node.js and mongoose",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "server": "node server.js",
     "client": "npm run start --prefix ../frontend",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "watch": "nodemon"
   },
   "keywords": [],
   "author": "Trimmed Team",
