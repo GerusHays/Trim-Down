@@ -28,7 +28,7 @@ const Login = (props) => {
       });
       console.log(data);
       Auth.login(data.login.token);
-      document.location.replace(`/profile/${data.login.user.username}`);
+      document.location.replace(`/dashboard/`);
     } catch (e) {
       console.error(e);
     }

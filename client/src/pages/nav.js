@@ -1,16 +1,8 @@
 import React from "react";
 import Auth from "../utils/auth";
-
-const navList = ["About", "Register", "Profile", "Login"];
+import { Link } from "react-router-dom";
 
 function Nav(props) {
-  const list = navList.map((item) => {
-    return (
-      <li key={item}>
-        <a href={`/${item}`}>{item}</a>
-      </li>
-    );
-  });
 
   const logout = (event) => {
     event.preventDefault();
@@ -43,7 +35,8 @@ function Nav(props) {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              {list}
+              <li><Link to={'/about'}>About Us</Link></li>
+              <li><Link to={'/about'}>Contact Us</Link></li>
             </ul>{" "}
             {/* List */}
           </div>{" "}
@@ -51,42 +44,41 @@ function Nav(props) {
         </div>{" "}
         {/* navbar-start */}
         <div className="navbar-center">
-          <a className="btn btn-ghost normal-case text-xl logo" href="/">
+          <Link className="btn btn-ghost normal-case text-xl logo" to={'/'}>
             TrimDown
             <img
               src={require("../assets/images/coin.png")}
               alt="coin"
               className="max-w-[20px] "
             />
-          </a>
+          </Link>
         </div>{" "}
         {/* navbar-center */}
         <div className="navbar-end">
           <div class="dropdown dropdown-end">
             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
               <div class="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" />
+                <img src="https://placeimg.com/80/80/people" alt="coin" />
               </div>
             </label>
             <ul
               tabindex="0"
               class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a href="/Profile" class="justify-between">
-                  Profile
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
+              {Auth.loggedIn() ? (
                 <>
-                  <a href="/" onClick={logout}>
-                    Logout
-                  </a>
+                  <li><Link to={"/dashboard"}>Dashboard</Link></li>
+                  <li><a href="/profile">Profile</a></li>
+                  <li><a>Settings</a></li>
+                  <li><a href="/" onClick={logout}>Logout</a></li>
                 </>
-              </li>
+                
+              ): (
+                <>
+                  <li><Link to={"/login"}>Login</Link></li>
+                  <li><Link to={"/signup"}>Sign Up</Link></li>
+                </>
+              )}
             </ul>
           </div>{" "}
           {/* dropdown user */}

@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 
-const Profile = (props) => {
+const Dashboard = (props) => {
   const { username: userParam } = useParams();
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
@@ -14,7 +14,7 @@ const Profile = (props) => {
   const user = data?.me || data?.user || {};
   
   if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/profile" />
+    return <Navigate to="/dashboard" />
   }
 
   if (loading) {
@@ -110,4 +110,4 @@ const Profile = (props) => {
   }
 };
 
-export default Profile;
+export default Dashboard;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Icon from "./sub-components/icon";
 const Hero = () => {
   return (
@@ -30,12 +31,12 @@ const Hero = () => {
               <Icon iconName={"weed"} iconSize={"md"} />
             </div>
             <div className="card-actions justify-center">
-              <a href="/register" className="btn btn-error">
+              <Link to={"/signup"} className="btn btn-error">
                 Sign Up
-              </a>
-              <a href="/login" className="btn btn-accent ">
+              </Link>
+              <Link to={"/login"} className="btn btn-accent ">
                 Sign In
-              </a>
+              </Link>
             </div>
           </div>
         </div>

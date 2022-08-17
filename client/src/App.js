@@ -10,19 +10,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import About from "./pages/about";
 import Login from "./pages/login";
-import Profile from "./pages/profile";
+import Dashboard from "./pages/dashboard";
 import Footer from "./pages/footer";
-import Header from "./pages/header";
 import Hero from "./pages/hero";
 import Nav from "./pages/nav";
 import "react-toastify/dist/ReactToastify.css";
-// import "./App.css";
 import Signup from "./pages/register";
-import Auth from "../src/utils/auth";
 
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -42,31 +39,24 @@ const client = new ApolloClient({
 
 export default function App() {
   return (
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Router>
-          <div className="container"></div>
-          {/* <Nav /> */}
-            <Nav />
-            {Auth.loggedIn() ? (
-              <></>
-            ) : (
-              <>
-                <Hero />
-              </>
-            )}
-            <Routes>
-              <Route exact path="/register" element={<Signup />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route path="/profile">
-                <Route path=":username" element={<Profile />} />
-                <Route path="" element={<Profile />} />
-              </Route>
-              <Route exact path="/about" element={<About />} />
-            </Routes>
-          </Router>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard">
+              <Route path=":username" element={<Dashboard />} />
+              <Route path="" element={<Dashboard />} />
+            </Route>
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<div className="w-ful flex justify-center py-4 text-white text-2xl">Wow you broke our site! Go you!</div>} />
+          </Routes>
           <Footer />
         </div>
-      </ApolloProvider>
+      </Router>
+    </ApolloProvider>
   );
 }
