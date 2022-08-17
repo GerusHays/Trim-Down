@@ -32,21 +32,27 @@ const Signup = () => {
       });
 
       Auth.login(data.addUser.token);
-      document.location.replace("/");
+      document.location.replace("/profile/" + data.addUser.user.username);
     } catch (e) {
       console.error(e);
     }
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Sign Up</h4>
-          <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
+    <div class="hero min-h-screen bg-base-200">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl font-bold">Signup now!</h1>
+          <p class="py-6">Signup or y'all gonna be broke forever</p>
+        </div>
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div class="card-body">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Username</span>
+              </label>
               <input
-                className="form-input"
+                className="form-input input input-bordered"
                 placeholder="Your username"
                 name="username"
                 type="username"
@@ -54,8 +60,13 @@ const Signup = () => {
                 value={formState.username}
                 onChange={handleChange}
               />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Email</span>
+              </label>
               <input
-                className="form-input"
+                className="form-input input input-bordered"
                 placeholder="Your email"
                 name="email"
                 type="email"
@@ -63,8 +74,13 @@ const Signup = () => {
                 value={formState.email}
                 onChange={handleChange}
               />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Password</span>
+              </label>
               <input
-                className="form-input"
+                className="form-input input input-bordered"
                 placeholder="******"
                 name="password"
                 type="password"
@@ -72,16 +88,15 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
-                Submit
-              </button>
-            </form>
-
-            {error && <div>Signup failed</div>}
+            </div>
+            <div class="form-control mt-6">
+              <button className="btn d-block w-100 btn-primary" type="submit" onClick={handleFormSubmit}>
+                Signup</button>
+            </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

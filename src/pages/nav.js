@@ -49,6 +49,7 @@ function Nav(props) {
               <li>
                 <a href="about">About</a>
               </li>
+              
               <li>
                 <>
                   <a href="register">
