@@ -41,20 +41,14 @@ const Login = (props) => {
   };
 
   return (
-    <main class="hero min-h-screen bg-base-200">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="text-center lg:text-left">
-          <h1 class="text-5xl font-bold">Login now!</h1>
-          <p class="py-6">Wallet looking slim lately? Sounds like you need to trim down. Are you broke AF? Better log in quickly!</p>
-        </div>
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div class="card-body">
-            <div class="form-control" onSubmit={handleFormSubmit}>
-              <label class="label">
-                <span class="label-text">Email</span>
-              </label>
+    <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-md-6">
+        <div className="card">
+          <h4 className="card-header">Login</h4>
+          <div className="card-body">
+            <form onSubmit={handleFormSubmit}>
               <input
-                className="form-input input input-bordered"
+                className="form-input"
                 placeholder="Your email"
                 name="email"
                 type="email"
@@ -62,26 +56,21 @@ const Login = (props) => {
                 value={formState.email}
                 onChange={handleChange}
               />
-            </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Password</span>
-              </label>
               <input
-                className="form-input input input-bordered"
-                placeholder="******************************"
+                className="form-input"
+                placeholder="******"
                 name="password"
                 type="password"
                 id="password"
                 value={formState.password}
                 onChange={handleChange}
               />
-            </div>
-            <div class="form-control mt-6">
-              <button className="btn d-block w-100 btn-primary" type="submit" onClick={handleFormSubmit}>
+              <button className="btn d-block w-100" type="submit">
                 Submit
               </button>
-            </div>
+            </form>
+
+            {error && <div>Login failed</div>}
           </div>
         </div>
       </div>
