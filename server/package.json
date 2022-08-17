@@ -1,13 +1,12 @@
 {
-  "name": "backend",
+  "name": "mern-server",
   "version": "1.0.0",
   "description": "backend folder for react app with node.js and mongoose",
   "main": "server.js",
   "scripts": {
-    "server": "node server.js",
-    "client": "npm run start --prefix ../frontend",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "watch": "nodemon"
+    "start": "node server.js",
+    "watch": "nodemon",
+    "seed": "node seeders/seeds.js"
   },
   "keywords": [],
   "author": "Trimmed Team",

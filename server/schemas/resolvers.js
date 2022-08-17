@@ -1,12 +1,12 @@
 const { Users } = require("../models/Schemas.js");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-const { TiArrowSyncOutline } = require("react-icons/ti");
+// const { TiArrowSyncOutline } = require("react-icons/ti");
 
 const resolvers = {
   Query: {
     me: async (parent, args) => {
-      const userData = await User.findOne({ _id: context.user._id });
+      const userData = await Users.findOne({ _id: context.user._id });
 
       return userData;
     },
