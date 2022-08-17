@@ -60,13 +60,13 @@ const ExpenseForm = ({ visible, onClose }) => {
                         <form className="flex flex-col gap-4" onSubmit={handleSubmit}> 
                             <label className="text-left text-sm">Expense Type</label>
                             
-                            <input 
-                                type={'text'}
-                                name='expenseName' 
-                                className="w-full p-2 border border-gray-400 rounded-lg"  
-                                placeholder="Enter expense type" 
-                                onChange={handleChange}
-                                value={formState.expenseName} />
+                            <select id="expenseName" name="expenseName" value={formState.expenseName} onChange={handleChange} className="w-full">
+                                <option value="">Select Expense Type</option>
+                                <option value="vaping">Vaping</option>
+                                <option value="beer">Beer</option>
+                                <option value="weed">Recreational</option>
+                                <option value='clothing'>Clothing</option>
+                            </select>
 
                             <label name='expenseAmount' className="text-left text-sm">Expense Amount</label>
                             

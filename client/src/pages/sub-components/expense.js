@@ -9,7 +9,7 @@ const Expense = ({expenseName, expenseAmount, expenseDate}) => {
         </div>
         <div>
           <div className="text-left text-xl font-medium text-black">
-            {expenseName}
+            {expenseName.toUpperCase()}
           </div>
           <p className="text-slate-500">{expenseDate}</p>
         </div>

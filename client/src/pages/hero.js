@@ -27,7 +27,7 @@ const Hero = () => {
             <div className="card-actions py-3 ">
               <Icon iconName={"beer"} iconSize={"md"} />
               <Icon iconName={"vaping"} iconSize={"md"} />
-              <Icon iconName={"clothes"} iconSize={"md"} />
+              <Icon iconName={"clothing"} iconSize={"md"} />
               <Icon iconName={"weed"} iconSize={"md"} />
             </div>
             <div className="card-actions justify-center">
