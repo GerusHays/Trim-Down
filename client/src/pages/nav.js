@@ -73,7 +73,7 @@ function Nav(props) {
               class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a href="/Dashboard" class="justify-between">
+                <a href="/Profile" class="justify-between">
                   Profile
                 </a>
               </li>

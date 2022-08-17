@@ -4,7 +4,8 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "i": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed"
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
   "name": "trim-down",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",

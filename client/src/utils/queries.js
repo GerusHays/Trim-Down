@@ -6,6 +6,12 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      expenses {
+        _id
+        expenseName
+        expenseAmount
+        expenseDate
+      }
     }
   }
 `;
@@ -16,6 +22,12 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      expenses {
+        _id
+        expenseName
+        expenseAmount
+        expenseDate
+      }
     }
   }
 `;

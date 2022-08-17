@@ -4,7 +4,7 @@ import Expense from "./sub-components/expense";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
-// import Auth from "../utils/auth";
+import Auth from "../utils/auth";
 
 const Profile = (props) => {
   const { username: userParam } = useParams();
@@ -12,7 +12,10 @@ const Profile = (props) => {
     variables: { username: userParam },
   });
   const user = data?.me || data?.user || {};
-  console.log(user);
+  
+  if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Navigate to="/profile" />
+  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -22,13 +25,10 @@ const Profile = (props) => {
     return (
       <div>
         <div className="flex-row mb-3">
-          <h2 className="bg-dark text-secondary p-3 display-inline-block">
-            Viewing {userParam ? `${user.username}'s` : "your"} profile.
-          </h2>
           <div className="bg-base-100 ">
             <div className="bg-primary rounded-b-lg py-6">
               <h1 className="text-left px-6 text-white text-2xl">
-                Welcome {user.username}
+                Welcome {user.username.toUpperCase()}
               </h1>
             </div>
             <div className="flex flex-col py-4 w-11/12 md:w-5/6 mx-auto">
@@ -97,7 +97,11 @@ const Profile = (props) => {
                 </div>
               </div>
               <h1 className="text-left text-2xl pb-2">Expenses</h1>
-              <Expense />
+              
+              <Expense 
+                expenseName={'Beer'}
+                expenseAmount={20.00}
+                expenseDate={'Aug 16th, 2022 at 10:51 pm'} />
             </div>
           </div>
         </div>

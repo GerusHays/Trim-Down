@@ -1,12 +1,4 @@
 import React from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import About from "./pages/about";
-import Login from "./pages/login";
-import Profile from "./pages/profile";
-import Footer from "./pages/footer";
-import Header from "./pages/header";
-import Hero from "./pages/hero";
-import Nav from "./pages/nav";
 import {
   ApolloProvider,
   ApolloClient,
@@ -14,15 +6,20 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import About from "./pages/about";
+import Login from "./pages/login";
+import Profile from "./pages/profile";
+import Footer from "./pages/footer";
+import Header from "./pages/header";
+import Hero from "./pages/hero";
+import Nav from "./pages/nav";
 import "react-toastify/dist/ReactToastify.css";
 // import "./App.css";
 import Signup from "./pages/register";
 import Auth from "../src/utils/auth";
 
-
-// const httpLink = createHttpLink({
-//   uri: "http://localhost:4000/graphql",
-// });
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,12 +42,11 @@ const client = new ApolloClient({
 
 export default function App() {
   return (
-    <>
       <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
+          <Router>
           <div className="container"></div>
           {/* <Nav /> */}
-          <BrowserRouter>
             <Nav />
             {Auth.loggedIn() ? (
               <></>
@@ -68,10 +64,9 @@ export default function App() {
               </Route>
               <Route exact path="/about" element={<About />} />
             </Routes>
-          </BrowserRouter>
+          </Router>
           <Footer />
         </div>
       </ApolloProvider>
-    </>
   );
 }

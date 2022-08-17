@@ -23,3 +23,14 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_EXPENSE = gql`
+  mutation addExpense($expenseName: String!, $expenseAmount: Float!) {
+    addExpense(expenseName: $expenseName, expenseAmount: $expenseAmount) {
+      _id
+      expenseName
+      expenseAmount
+      expenseDate
+    }
+  }
+`;
