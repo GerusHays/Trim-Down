@@ -13,7 +13,7 @@ const ExpenseForm = ({ visible, onClose }) => {
                 const { me } = cache.readQuery({ query: QUERY_ME });
                 cache.writeQuery({
                     query: QUERY_ME,
-                    data: { ...me, expenses: [...me.expenses, addExpense] }
+                    data: { me: {...me, expenses: [...me.expenses, addExpense]} }
                 });
             } catch (error) {
                 console.warn('No cache found');
