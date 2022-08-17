@@ -5,10 +5,12 @@ const mongoose = require("mongoose");
 const { ApolloServer } = require("apollo-server-express");
 const { typeDefs, resolvers } = require("./schemas");
 const { authMiddleware } = require("./utils/auth");
-require("dotenv/config");
+require("dotenv/config.js");
 const path = require("path");
-const PORT = process.env.PORT || 4000; // backend routing port
-// DB Connection
+// const PORT = process.env.PORT || 4000; // backend routing port
+// // DB Connection
+const PORT = process.env.PORT || 3001;
+
 mongoose
   .connect(process.env.DB_URI || "mongodb://localhost:27017/jwt", {
     useNewUrlParser: true,
@@ -39,6 +41,13 @@ const startApolloServer = async ({ typeDefs, resolvers }) => {
   server.applyMiddleware({ app });
 };
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
 // if (process.env.NODE_ENV === 'production') {
 //     // Serve any static files
 //     app.use(express.static(path.join(__dirname, 'frontend/build')));

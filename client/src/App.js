@@ -14,12 +14,17 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import "react-toastify/dist/ReactToastify.css";
-import "./App.css";
+// import "./App.css";
 import Signup from "./pages/register";
 import Auth from "../src/utils/auth";
 
+
+// const httpLink = createHttpLink({
+//   uri: "http://localhost:4000/graphql",
+// });
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:4000/graphql",
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
