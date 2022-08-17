@@ -4,9 +4,10 @@
   "description": "backend folder for react app with node.js and mongoose",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "server": "node server.js",
     "watch": "nodemon",
-    "seed": "node seeders/seeds.js"
+    "seed" : "node seeds/seeds.js"
+
   },
   "keywords": [],
   "author": "Trimmed Team",
@@ -24,6 +25,7 @@
     "mongoose": "^6.5.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.4.0",
     "nodemon": "^2.0.19"
   }
 }
