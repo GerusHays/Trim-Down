@@ -2,7 +2,7 @@ import Icon from "./icon";
 
 const Expense = ({expenseName, expenseAmount, expenseDate}) => {
   return (
-    <div className="p-6 w-full  mx-auto bg-white rounded-xl shadow-lg flex items-center justify-between">
+    <div className="p-6 w-full  mx-auto bg-white rounded-xl shadow-lg flex items-center justify-between m-2">
       <div className="flex flex-row items-center space-x-4">
         <div className="shrink-0">
           <Icon iconName={expenseName.toLowerCase()} iconSize={"sm"} />

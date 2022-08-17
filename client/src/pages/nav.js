@@ -14,7 +14,7 @@ function Nav(props) {
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabindex="0" className="btn btn-ghost btn-circle">
+            <label tabIndex="0" className="btn btn-ghost btn-circle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -56,13 +56,13 @@ function Nav(props) {
         {/* navbar-center */}
         <div className="navbar-end">
           <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+            <label tabIndex="0" class="btn btn-ghost btn-circle avatar">
               <div class="w-10 rounded-full">
                 <img src="https://placeimg.com/80/80/people" alt="coin" />
               </div>
             </label>
             <ul
-              tabindex="0"
+              tabIndex="0"
               class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               {Auth.loggedIn() ? (

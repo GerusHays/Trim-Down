@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaChevronDown, FaPlus } from "react-icons/fa";
 import { Navigate, useParams } from "react-router-dom";
 import Expense from "./sub-components/expense";
+import ExpenseForm from "./sub-components/ExpenseForm";
 
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 
 const Dashboard = (props) => {
+  const [showForm, setShowForm] = useState(false);
   const { username: userParam } = useParams();
+  const cancelForm = () => { setShowForm(false) };
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
   const user = data?.me || data?.user || {};
   
   if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    
     return <Navigate to="/dashboard" />
   }
 
@@ -97,12 +102,15 @@ const Dashboard = (props) => {
                 </div>
               </div>
               <h1 className="text-left text-2xl pb-2">Expenses</h1>
-              
-              <Expense 
-                expenseName={'Beer'}
-                expenseAmount={20.00}
-                expenseDate={'Aug 16th, 2022 at 10:51 pm'} />
+              <button onClick={()=> setShowForm(true)} className="btn w-fit btn-ghost mb-3">
+                <FaPlus /><span className="text-lg pt-0.5 px-1 capitalize">Add Expense</span> 
+              </button>
+              {user.expenses.length ?  (user.expenses.map((expense) => (
+                <Expense key={expense._id} expenseName={expense.expenseName} expenseAmount={expense.expenseAmount} expenseDate={expense.expenseDate} />
+                ))) : (<p>You have no expenses! Hooray to you! </p>)}
+
             </div>
+              <ExpenseForm onClose={cancelForm} visible={showForm} />
           </div>
         </div>
       </div>

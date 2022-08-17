@@ -9,9 +9,9 @@ const expenseSchema = new Schema(
         minlenght: 1,
     },
     expenseAmount: {
-        type: Number,
+        type: String,
         required: 'Expense amount is required',
-        min: 0.99
+        min:1
     },
     expenseDate: {
         type: Date,
