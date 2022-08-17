@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://use.typekit.net/lfb5whd.css");
+
+
+.logo {
+    font-family: montserrat, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@layer components {
+    .icon-md {
+        @apply relative flex items-center justify-center
+                h-16 w-16 sm:h-24 sm:w-24 py-3 px-3 my-2 mx-auto shadow-lg bg-warning
+                transition-all duration-300 ease-linear rounded-xl;
+    }
+
+    .icon-sm {
+        @apply relative flex items-center justify-center
+                h-12 w-12 sm:h-16 sm:w-16 py-2 px-2 my-1 mx-auto shadow-md bg-warning
+                transition-all duration-300 ease-linear rounded-xl;
+    }
+    
+}
+
+@layer base {
+    html {
+        font-family: source-sans-pro, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
