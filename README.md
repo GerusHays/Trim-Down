@@ -48,7 +48,7 @@ In doing so this app will track their expenses of everything they are spending m
 This application was tested periodically throughout creation to ensure that it was functioning properly.
 
 ## Web Link
-
+https://trim-down.herokuapp.com/
 ## PowerPoint
 [google docs powerpoint](https://docs.google.com/presentation/d/1EfVwaP_1f4fG2HiAorfX3qdFlVrHJxX61729DSiTmAA/edit?usp=sharing)
 
