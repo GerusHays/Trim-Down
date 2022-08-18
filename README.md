@@ -4,8 +4,10 @@
 This website was created to assist users in managing their personal finances. Hopefully alleviating some un-needed "wants" of your day to day expenses.
 
 ## Screenshot:
-![Trim-Down-Screenshot](./src/assets/images/trim-down-screenshot.png)
-![Trim-Down-Screenshot](./src/assets/images/trim-down-screenshot.png)
+![Trim-Down-Screenshot](./Screenshots/Screenshot1.png)
+
+![Trim-Down-Screenshot](./Screenshots/Screenshot2.png)
+
 
 ## Table of Contents
 * [Technologies Used](#technologies-used)
