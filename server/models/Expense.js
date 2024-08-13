@@ -18,10 +18,7 @@ const expenseSchema = new Schema(
         default: Date.now,
         get: timestamp => dateFormat(timestamp)
     },
-    username: {
-        type: String,
-        require: true,
-    }
+   
 });
 
 const Expense = model('Expense', expenseSchema);

@@ -59,14 +59,14 @@ const resolvers = {
     },
     addExpense: async (parent, args, context) => {
       if(context.user){
-        const expense = await Expense.create({ ...args, username: context.user.username });
+        const expense = await Expense.create({ ...args});
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { expenses: expense._id } },
           { new: true }
         );
-        return expense;
+        return expense
       }
       throw new AuthenticationError("You are not authenticated");
     }
